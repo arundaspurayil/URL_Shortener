@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 require('dotenv').config()
 
-
+require('./models/URL')
 
 var logger = require('morgan');
 
