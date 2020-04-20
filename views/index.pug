@@ -1,5 +1,10 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    form(action="/shorten" method="POST")
+      label(for="URL") Enter URL: 
+      input(type="text" name="fname" )
+      input(type="submit" value="Shorten")
