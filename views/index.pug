@@ -6,7 +6,9 @@ html
   body
     if(errors)
       each error in errors   
-      p.small.text-danger #{error.msg}
+        p.small.text-danger #{error.msg}
+    if(url)
+      h1() #{url}
     form(action="/shorten" method="POST")
       label(for="URL") Enter URL: 
       input(type="text" name="url" )

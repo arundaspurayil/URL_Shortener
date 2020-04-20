@@ -1,5 +1,5 @@
 let mongoose = require('mongoose')
-let nanoid =require('nanoid')
+const { nanoid } = require('nanoid')
 
 let urlSchema =  new mongoose.Schema({
     originalUrl: String,
@@ -9,5 +9,7 @@ let urlSchema =  new mongoose.Schema({
 urlSchema.methods.setShortenedUrl = function(originalUrl){
     this.shortenedUrl = nanoid(5)
 }
-
+urlSchema.methods.getShortenedUrl = function(){
+    return this.shortenedUrl
+}
 mongoose.model('URL', urlSchema)
