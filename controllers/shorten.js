@@ -14,9 +14,12 @@ async function urlExists(value){
 }
 
 exports.shorten_url = async function(req, res, next){
+    console.log(req.body) 
     const errors = await validationResult(req);
     if(!errors.isEmpty()){
-        return res.render('index',{errors: errors.errors})
+
+        return res.send({error: true, msg: "Please enter a valid URL."})
+
     }
 
     let urlValue = req.body.url
@@ -33,10 +36,13 @@ exports.shorten_url = async function(req, res, next){
             if(err){
                 return next(err)
             }
-            res.render('index', {errors: {}, url: url.getShortenedUrl()})
+            //res.render('index', {errors: {}, url: url.getShortenedUrl()})
+            res.send({error:false, msg: url.getShortenedUrl()})
+
         })
     }else{
-        res.render('index', {errors:{}, url: url.shortenedUrl})
+        //res.render('index', {errors:{}, url: url.shortenedUrl})
+        res.send({error:false, msg: url.shortenedUrl})
     }
 
 }
