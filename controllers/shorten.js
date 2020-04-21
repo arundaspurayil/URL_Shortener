@@ -26,7 +26,7 @@ exports.redirectId = async function(req, res ,next){
     let url = await shortIdExists(shortId)
 
     if(url == null){
-        //Invalid page
+        res.render("urlError")
     }else{
         res.redirect(url.originalUrl)
     }
