@@ -12,9 +12,28 @@ async function urlExists(value){
     return url
     
 }
+async function shortIdExists(value){
+    let url = await URL.findOne({shortenedUrl: value})
+        
+    if(url == null){
+        return null
+    }
+    return url
+    
+}
+exports.redirectId = async function(req, res ,next){
+    let shortId = req.params.id
+    let url = await shortIdExists(shortId)
+
+    if(url == null){
+        //Invalid page
+    }else{
+        res.redirect(url.originalUrl)
+    }
+}
+
 
 exports.shorten_url = async function(req, res, next){
-    console.log(req.body) 
     const errors = await validationResult(req);
     if(!errors.isEmpty()){
 
@@ -24,7 +43,6 @@ exports.shorten_url = async function(req, res, next){
 
     let urlValue = req.body.url
     let url = await urlExists(urlValue)
-    console.log(url)
 
     if( url === null){
         url = new URL()

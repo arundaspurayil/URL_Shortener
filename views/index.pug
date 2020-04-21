@@ -6,10 +6,9 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     #errors
-      
-    if(errors)
-      each error in errors   
-        p.small.text-danger #{error.msg}
+      if(error)
+        p.large.text-danger #{msg}     
+
     
     #printurl
 

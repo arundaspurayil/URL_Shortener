@@ -7,11 +7,12 @@ function shortenUrl(){
         dataType: 'json',
         data: {url: givenUrl},
         success: ((res) => {
-            console.log(res)
             if(res.error){
-                $("#errors").append("<p class=\"small text-danger\">" +res.msg+ "</p>")
+                $("#errors").html("<p class=\"small text-danger\">" +res.msg+ "</p>")
+                $("#printurl").html("")
             }else{
-                $("#printurl").append("<h1>" +res.msg+ "</h1>")
+                $("#errors").html("")
+                $("#printurl").html("<h1>" +res.msg+ "</h1>")
             }
         }),
         error: ((error) => {
