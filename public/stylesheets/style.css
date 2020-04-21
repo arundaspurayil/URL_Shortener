@@ -1,8 +1,23 @@
 body {
   padding: 50px;
+  background-color: azure !important;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+
+
+.my-row{
+  margin-bottom: 50px;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.resultjumbotron{
+  visibility: hidden;
 }

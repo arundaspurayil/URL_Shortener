@@ -10,8 +10,10 @@ function shortenUrl(){
             if(res.error){
                 $("#errors").html("<p class=\"small text-danger\">" +res.msg+ "</p>")
                 $("#printurl").html("")
+                $(".resultjumbotron").css("visibility", "hidden");
             }else{
                 $("#errors").html("")
+                $(".resultjumbotron").css("visibility", "visible");
                 $("#printurl").html("<h1>" +res.msg+ "</h1>")
             }
         }),

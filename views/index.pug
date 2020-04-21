@@ -5,17 +5,23 @@ html
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    #errors
-      if(error)
-        p.large.text-danger #{msg}     
-
-    
-    #printurl
-
-    //form(action="/shorten" method="POST")
-    label(for="URL") Enter URL: 
-    input(type="text" name="url" id="url")
-    button(onclick=`shortenUrl()`).btn.btn-primary Shorten    
+    .container    
+      .row.vertical-center.text-center
+        .col
+          h1() Url Shortener
+          #errors
+            if(error)
+              p.large.text-danger #{msg} 
+          .row.my-row
+            .col.my-col
+              .form-group
+                input(type="text" name="url" id="url" class="form-control" placeholder="Enter URL")
+              button(onclick=`shortenUrl()`).btn.btn-primary Shorten 
+          .row.my-row
+            .col
+              .jumbotron.resultjumbotron
+                #printurl   
+      
 
     script(src="https://code.jquery.com/jquery-3.5.0.min.js")
     script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous")

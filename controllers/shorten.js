@@ -55,12 +55,12 @@ exports.shorten_url = async function(req, res, next){
                 return next(err)
             }
             //res.render('index', {errors: {}, url: url.getShortenedUrl()})
-            res.send({error:false, msg: url.getShortenedUrl()})
+            res.send({error:false, msg: req.get('host')+'/'+url.getShortenedUrl()})
 
         })
     }else{
         //res.render('index', {errors:{}, url: url.shortenedUrl})
-        res.send({error:false, msg: url.shortenedUrl})
+        res.send({error:false, msg: req.get('host')+'/'+url.shortenedUrl})
     }
 
 }
